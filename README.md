@@ -15,6 +15,15 @@ or
 
 `docker run email-analysis-dev`
 
+### Results
+![Inertia Clusters](elbow_plot.png)
+
+- Out of 10 clusters, 3 seems to be the most optimum for differentiating the data
+
+![Kmeans](kmeans_scatter.png)
+
+- With around a .5 silohouette score, our clusters divide the points well 
+
 #### How to improve project
 
 - Apply KMeans on a dataset containing stratified sampling from Inbox, Sent, and Spam

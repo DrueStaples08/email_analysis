@@ -11,6 +11,10 @@
 
 `docker run -d email-analysis-dev`
 
+or
+
+`docker run email-analysis-dev`
+
 #### How to improve project
 
 - Apply KMeans on a dataset containing stratified sampling from Inbox, Sent, and Spam

@@ -1,35 +1,18 @@
 from sklearn.decomposition import PCA
 from email_data_analysis import extract_email
-# from preprocessing.Word2VecAnalogy import word_embeddings
 from preprocessing import Word2VecAnalogy
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
+
+
 def two_dim_decomp(email_vectors):
     email_vectors = np.array(list(email_vectors.values()))
-    # res = []
-    # print(email_vectors)
-    # print('EMAIL VECTOR INFO', email_vectors.shape, type(email_vectors))
     model = PCA(n_components=2)
     scaled_data = model.fit_transform(email_vectors)
-    # for key, ev in email_vectors.items():
-    #     try:
-            # res.append(model.fit_transform(email_vectors))
-    #     except TypeError:
-    #         pass
-    
     return scaled_data, model
-
-    # return res
-
-# def plot_emails(email_vectors):
-#     scaled_data, model = two_dim_decomp(email_vectors)
-#     plt.scatter(scaled_data[:, 0], scaled_data[:, 1])
-#     plt.show()
-#     plt.savefig('PCA_emails.png')
-#     return 'PCA Plot Saved!'
 
 
 
@@ -68,26 +51,12 @@ def kmeans_run(email_vectors, cluster_quantity=3):
         g.savefig('kmeans_scatter.png')
         plt.show()
 
-    # plot cluster centers
-    # title the kmeans scatter plot with metrics (what are metrics to kmeans? Distance from each node to its respective cluster)
-    # Use TDA KepplerMapper tool to visualize data in higher dimensions
-    
-    #
 
-
-
-    # print(scaled_data)
-    # print('kmeans run')
 
 if __name__ == '__main__':
     ee = extract_email()
     wa = Word2VecAnalogy(ee)
     we = wa.word_embeddings()
-    # tdd = two_dim_decomp(we)
-    # print(tdd)
-    # pe = plot_emails(we)
-
-
     kr = elbow_plot_run(we)
     km = kmeans_run(we)
     print('Now testing the inertia on a range of cluster quantities')

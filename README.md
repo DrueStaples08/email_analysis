@@ -18,7 +18,7 @@ or
 ### Results
 ![Inertia Clusters](elbow_plot.png)
 
-- Out of 10 clusters, 3 seems to be the most optimum for differentiating the data
+- Out of 10 clusters, 3 is the most optimum for differentiating the data
 
 ![Kmeans](kmeans_scatter.png)
 

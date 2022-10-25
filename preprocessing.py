@@ -1,29 +1,17 @@
-# from types import NoneType
 import gensim.downloader as gapi
 from gensim import models
 from gensim.models import word2vec
 from gensim.models.word2vec import Word2Vec
-# nltk.download('stopwords')
 import nltk
-# nltk.download()
-# nltk.download('punkt')
 from nltk.tokenize import sent_tokenize, word_tokenize
 import numpy as np
 import re 
 from nltk.corpus import stopwords
-# stopwords.words('english')
-# nltk.download('wordnet')
-# nltk.download('omw-1.4')
 from nltk.stem import *
 from nltk.stem.porter import *
-# from odem_career_embeddings import odem_skills
-# from langdetect import detect
-# from googletrans import Translator, constants
-# from dbconnect import extract_id_skills
 from email_data_analysis import extract_email
 
-# Attribute 1: dataset scraped from ODEM Platform including all job titles and a string nested list of skills
-# Attribute 2: Analogical Reasoning Corpuses of various sizes which can be used for comparison
+
 class Analogy:
     def __init__(self, career_skills):
         self.career_skills = career_skills
@@ -59,9 +47,7 @@ class Word2VecAnalogy(Analogy):
     # Pre-process data - Use stemming and lemmatizing to gather the stem of the word and the context of the word
     def prep_data(self):
         count = 0
-        # career_skills = self.return_skills()
         career_skills = self.career_skills
-        # print(career_skills)
         career_results = {}
         if type(career_skills) == list:
             my_skills = career_skills
@@ -97,10 +83,6 @@ class Word2VecAnalogy(Analogy):
                     res.append(x)
                 except KeyError:
                     res.append(0)
-            #         embedding_skills = np.add.reduce(res) / len(v)
-            # career_results[k] = embedding_skills
-            #     embedding_skills = np.add.reduce(res) / len(v)
-            # career_results[k] = embedding_skills
             embedding_skills = np.add.reduce(res) / len(v)
             career_results[k] = embedding_skills
         return career_results

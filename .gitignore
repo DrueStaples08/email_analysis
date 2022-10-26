@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # My local files 
-credentials.json
 token.json
+credentials.json
 client_secret_512981807913-h97hb8rhc1pib128avavdgc1pq8lln1s.apps.googleusercontent.com.json:Zone.Identifier
